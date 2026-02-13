@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For ลูกชิ้น 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<!-- WELCOME OVERLAY -->
+<div id="welcomeScreen" class="welcome">
+  <div class="welcome-content">
+    <h1>ลูกชิ้น… 💕</h1>
+    <p>ฉันมีอะไรอยากเล่าให้เธอฟัง</p>
+    <button onclick="enterSite()">เริ่มฟังนะ 💗</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent">
+
+<section class="hero">
+  <h1>จุดเริ่มต้นของเรา 💗</h1>
+
+  <div class="scroll-indicator">
+    เลื่อนลงเรื่อย ๆ สิ 💗
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <p>
+  นับตั้งแต่วันแรกที่เรารู้จักกัน ผ่านเกม Sevenknight Rebirth  
+  เราอยู่ Guild เดียวกัน  
+  ตอนนั้นเธอกับฉันเป็นเพียงคนแปลกหน้า
+  </p>
+</section>
+
+<section class="reveal">
+  <p>
+  แต่ไม่รู้ว่าอะไรดลใจให้ฉัน DM หาเธอในวันนั้น  
+  จากข้อความสั้น ๆ กลายเป็นบทสนทนา  
+  จากบทสนทนา กลายเป็นความรู้สึก  
+  </p>
+</section>
+
+<section class="reveal">
+  <p>
+  วันนี้ฉันยังอยากรู้จักเธอให้มากกว่านี้  
+  อยากเติบโตไปพร้อมกับเธอ  
+  อยากใช้ชีวิตที่มีเธออยู่ในนั้น  
+  </p>
+</section>
+
+<section class="reveal final">
+  <h2>ลูกชิ้น…</h2>
+  <p>ช่วยอยู่กับฉันไปนาน ๆ ได้ไหม? 💗</p>
+
+  <div class="btn-group">
+    <button onclick="sayYes()">ได้สิ ❤️</button>
+    <button id="noBtn">ขอคิดดูก่อน 🤭</button>
+  </div>
+</section>
+
+</div>
+
+<!-- MODAL -->
+<div id="loveModal" class="modal">
+  <div class="modal-card">
+    <h2>💌 สุขสันต์วันวาเลนไทน์ 💌</h2>
+    <p>
+    สุขสันต์วันวาเลนไทน์นะครับ เจ้าตุมุน้อย  
+    ขอบคุณที่เข้ามาในชีวิตฉัน  
+    จากเกมเกมหนึ่ง  
+    จนกลายเป็นโลกทั้งใบของฉัน 💗
+    </p>
+    <button onclick="closeModal()">กอดแน่น ๆ 🤍</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

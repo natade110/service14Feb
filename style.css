@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background: linear-gradient(to bottom, #ffe0ec, #fff5f9);
+  color: #5a3d5c;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Welcome Overlay */
+.welcome {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to bottom, #ffd6e7, #ffc0da);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s;
+}
+
+.welcome.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.welcome-content {
+  text-align: center;
+}
+
+#mainContent {
+  visibility: hidden;
+}
+
+#mainContent.show {
+  visibility: visible;
+}
+
+/* Sections */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+  position: relative;
+}
+
+.hero {
+  background: radial-gradient(circle at center, #ffd6e7, #ffc0da);
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Buttons */
+button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  background: #ff6fa5;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff4f8b;
+  transform: scale(1.05);
+}
+
+#noBtn {
+  background: white;
+  color: #ff4f8b;
+  margin-left: 10px;
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.2s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.final {
+  background: linear-gradient(to bottom, #ffcce5, #ff99cc);
+  color: white;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+  animation: fadeIn 2s infinite alternate;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  border-left: 2px solid #ff6fa5;
+  border-bottom: 2px solid #ff6fa5;
+  transform: rotate(-45deg);
+  margin: 8px auto;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0% { transform: rotate(-45deg) translateY(0); }
+  50% { transform: rotate(-45deg) translateY(10px); }
+  100% { transform: rotate(-45deg) translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
