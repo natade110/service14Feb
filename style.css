@@ -2,7 +2,29 @@
    💗 Valentine's Day – Sweet & Maximalist CSS
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Prompt:wght@300;400;500&family=Dancing+Script:wght@700&display=swap');
+/*
+  📚 THAI FONT GUIDE (แนะนำ fonts น่ารักจาก Google Fonts):
+  ─────────────────────────────────────────────────────────
+  • Charmonman (จามรมาน)  ← ✅ ใช้ในที่นี้สำหรับ heading/display
+    → ตัวอักษรมีหัว เส้นสวยงาม ดูสุภาพและน่ารัก เหมาะกับ romantic content
+    → import: "Charmonman:wght@400;700"
+
+  • Kanit                 ← ✅ ใช้ในที่นี้สำหรับ body text
+    → ทรงกลม อ่านง่าย มีหลาย weight ดูทันสมัย friendly
+    → import: "Kanit:wght@300;400;500"
+
+  • Mali                  ← ตัวเลือกเพิ่มเติม – ทรงมน น่ารักมาก เหมือนลายมือ
+    → เหมาะกับ caption / note ที่อยากให้ดู handwritten
+
+  • Itim                  ← ตัวเลือกเพิ่มเติม – กลมน่ารักมาก ใช้เป็น accent ได้
+    → ดูเหมือนฟอนต์การ์ตูน สดใส
+
+  • Bai Jamjuree          ← ตัวเลือกเพิ่มเติม – สมดุล อ่านง่าย เหมาะกับ body
+    → มีทั้ง light ถึง bold ดู clean สะอาดตา
+  ─────────────────────────────────────────────────────────
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Kanit:wght@300;400;500&family=Playfair+Display:ital,wght@0,600;1,400&family=Dancing+Script:wght@700&display=swap');
 
 :root {
   --pink-deep:   #e0527a;
@@ -22,7 +44,8 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Prompt', sans-serif;
+  /* 🔤 เปลี่ยนจาก Prompt → Kanit (ทรงกลม อ่านง่าย น่ารัก) */
+  font-family: 'Kanit', sans-serif;
   background: var(--pink-pale);
   color: #5a2d45;
   overflow-x: hidden;
@@ -113,7 +136,8 @@ body {
 }
 
 .welcome-content h1 {
-  font-family: 'Dancing Script', cursive;
+  /* 🔤 เปลี่ยนจาก Dancing Script → Charmonman (ฟอนต์ไทยมีหัว สวยน่ารัก) */
+  font-family: 'Charmonman', cursive;
   font-size: clamp(2.8rem, 8vw, 5rem);
   color: var(--rose);
   margin: 0 0 8px;
@@ -122,7 +146,7 @@ body {
 }
 
 .welcome-content p {
-  font-family: 'Prompt', sans-serif;
+  font-family: 'Kanit', sans-serif;
   font-weight: 300;
   font-size: 1.1rem;
   color: #b5476a;
@@ -187,7 +211,9 @@ section::after  { bottom: 20px; right: 20px; transform: rotate(15deg); }
 .hero::after { font-size: 5rem; opacity: 0.25; }
 
 .hero h1 {
-  font-family: 'Dancing Script', cursive;
+  /* 🔤 เปลี่ยนจาก Dancing Script → Charmonman */
+  font-family: 'Charmonman', cursive;
+  font-weight: 700;
   font-size: clamp(2.5rem, 9vw, 5.5rem);
   color: white;
   text-shadow: 0 4px 30px rgba(201,24,74,0.5), 0 1px 0 rgba(255,255,255,0.3);
@@ -220,7 +246,8 @@ section::after  { bottom: 20px; right: 20px; transform: rotate(15deg); }
 
 /* ──────────── TYPOGRAPHY (h1, h2) ──────────── */
 h1, h2 {
-  font-family: 'Playfair Display', serif;
+  /* 🔤 เปลี่ยน Playfair Display → Charmonman สำหรับ Thai heading */
+  font-family: 'Charmonman', cursive;
 }
 
 /* ──────────── REVEAL SECTIONS ──────────── */
@@ -250,15 +277,26 @@ h1, h2 {
     #fff5f8;
 }
 
-/* Floating rose image accent in reveal sections */
+/* ─────────────────────────────────────────────
+   📸 REVEAL IMAGE – ปรับขนาดให้เหมาะสม
+   เดิม: min(220px, 55vw) – เล็กไปบน desktop
+   ใหม่: 
+     • Desktop  (>768px)  → 280px  (ใหญ่พอดี ไม่ครอบงำ layout)
+     • Tablet   (481-768) → 240px
+     • Mobile   (≤480px)  → 65vw   (ขยายตามหน้าจอ)
+   เพิ่ม aspect-ratio: 1/1 เพื่อรักษาทรงกลม
+   ────────────────────────────────────────── */
 .reveal-img {
-  width: min(220px, 55vw);
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center;
   border: 4px solid rgba(255,150,180,0.4);
   box-shadow: 0 8px 40px rgba(220,80,120,0.2), 0 0 0 8px rgba(255,180,200,0.15);
   margin-bottom: 28px;
   animation: floatImg 5s ease-in-out infinite;
+  flex-shrink: 0; /* ป้องกันการยุบเมื่อ flex container */
 }
 
 @keyframes floatImg {
@@ -268,10 +306,10 @@ h1, h2 {
 
 /* Paragraph card glass */
 .reveal p, .final p {
-  font-family: 'Prompt', sans-serif;
+  font-family: 'Kanit', sans-serif;
   font-weight: 300;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  line-height: 2.1;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 2.2;
   max-width: 600px;
   background: rgba(255,255,255,0.6);
   backdrop-filter: blur(8px);
@@ -281,6 +319,7 @@ h1, h2 {
   box-shadow: 0 4px 30px rgba(220,80,120,0.1), inset 0 1px 0 rgba(255,255,255,0.8);
   position: relative;
   z-index: 1;
+  letter-spacing: 0.02em;
 }
 
 /* Decorative quote mark */
@@ -309,7 +348,9 @@ h1, h2 {
 }
 
 .final h2 {
-  font-family: 'Dancing Script', cursive;
+  /* 🔤 Charmonman สำหรับ heading Thai */
+  font-family: 'Charmonman', cursive;
+  font-weight: 700;
   font-size: clamp(2.8rem, 8vw, 4.5rem);
   color: white;
   text-shadow: 0 3px 20px rgba(180,0,60,0.4);
@@ -325,7 +366,8 @@ button {
   border: none;
   background: linear-gradient(135deg, #ff6fa5 0%, #e0527a 100%);
   color: white;
-  font-family: 'Prompt', sans-serif;
+  /* 🔤 เปลี่ยน font บน button เป็น Kanit ด้วย */
+  font-family: 'Kanit', sans-serif;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
@@ -383,7 +425,6 @@ button:active { transform: scale(0.97); }
 #yesBtn {
   background: linear-gradient(135deg, #ff4081, #c9184a);
   box-shadow: 0 0 20px rgba(255,64,129,0.5);
-  /* transform handled by JS – only transition box-shadow here */
   transition: box-shadow 0.1s ease, filter 0.2s ease !important;
   transform-origin: center;
   will-change: transform, box-shadow;
@@ -396,7 +437,7 @@ button:active { transform: scale(0.97); }
   border: 2px solid var(--pink-light);
   backdrop-filter: blur(6px);
   box-shadow: 0 4px 16px rgba(220,80,120,0.15);
-  position: fixed; /* overridden by JS */
+  position: fixed;
   transition: background 0.2s, box-shadow 0.2s;
 }
 
@@ -419,6 +460,7 @@ button:active { transform: scale(0.97); }
   align-items: center;
   gap: 6px;
   z-index: 2;
+  font-family: 'Kanit', sans-serif;
 }
 
 .arrow {
@@ -450,11 +492,21 @@ button:active { transform: scale(0.97); }
   animation: fadeInOut 3s ease-in-out infinite;
 }
 
-/* ──────────── PHOTO STRIP (hero bg layer) ──────────── */
+/* ─────────────────────────────────────────────
+   📸 HERO ROSES IMAGE – ปรับขนาดให้เหมาะสม
+   เดิม: min(340px, 80vw) – ยังคง aspect ratio ไม่แน่นอน
+   ใหม่:
+     • กำหนด width + height ชัดเจน
+     • Desktop → 360px × 240px (landscape ดูสวยงาม)
+     • Mobile  → ใช้ responsive ตาม vw
+   ────────────────────────────────────────── */
 .hero-roses {
-  width: min(340px, 80vw);
+  width: min(360px, 82vw);
+  height: auto;
+  max-height: 260px;
   border-radius: 30px;
   object-fit: cover;
+  object-position: center;
   box-shadow: 0 16px 60px rgba(180,0,60,0.35), 0 0 0 6px rgba(255,160,190,0.25);
   margin-bottom: 32px;
   border: 3px solid rgba(255,255,255,0.5);
@@ -511,7 +563,9 @@ button:active { transform: scale(0.97); }
 }
 
 .modal-card h2 {
-  font-family: 'Dancing Script', cursive;
+  /* 🔤 Charmonman สำหรับ modal heading */
+  font-family: 'Charmonman', cursive;
+  font-weight: 700;
   font-size: 2.1rem;
   color: var(--rose);
   margin: 0 0 16px;
@@ -519,10 +573,10 @@ button:active { transform: scale(0.97); }
 }
 
 .modal-card p {
-  font-family: 'Prompt', sans-serif;
+  font-family: 'Kanit', sans-serif;
   font-weight: 300;
   font-size: 1rem;
-  line-height: 2;
+  line-height: 2.1;
   color: #6b2d50;
   margin: 0 0 24px;
   white-space: pre-line;
@@ -531,6 +585,7 @@ button:active { transform: scale(0.97); }
   padding: 0;
   border: none;
   box-shadow: none;
+  letter-spacing: 0.02em;
 }
 
 .modal-card p::before { display: none; }
@@ -564,7 +619,33 @@ button:active { transform: scale(0.97); }
 }
 
 /* ──────────── RESPONSIVE ──────────── */
+@media (max-width: 768px) {
+  .reveal-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-roses {
+    max-height: 200px;
+  }
+}
+
 @media (max-width: 480px) {
-  .reveal p, .final p { padding: 22px 22px; font-size: 0.97rem; }
-  .modal-card { padding: 36px 24px 28px; }
+  .reveal-img {
+    width: 65vw;
+    height: 65vw;
+  }
+
+  .hero-roses {
+    max-height: 180px;
+  }
+
+  .reveal p, .final p {
+    padding: 22px 22px;
+    font-size: 0.97rem;
+  }
+
+  .modal-card {
+    padding: 36px 24px 28px;
+  }
 }
